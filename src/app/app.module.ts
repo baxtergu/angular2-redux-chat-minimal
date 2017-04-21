@@ -3,18 +3,24 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { AppComponent } from './app.component';
+import { AppComponent, store } from './app.component';
+import { CounterComponent } from './counter/counter.component';
+import { AppStore } from './app.store';
+import { Store } from 'redux';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CounterComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [
+    { provide: AppStore, useValue: store }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
